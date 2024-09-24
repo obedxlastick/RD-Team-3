@@ -26,8 +26,8 @@ public class ModifyingImages {
 				Color originalColor = new Color(original.getRGB(x, y));
 				
 				Color invertedColor = new Color(255 - originalColor.getRed(),
-												255 - originalColor.getGreen(),
-												255 - originalColor.getBlue());
+								255 - originalColor.getGreen(),
+							        255 - originalColor.getBlue());
 				changedImage.setRGB(x, y, invertedColor.getRGB());
 			}
 		}
@@ -117,7 +117,7 @@ public class ModifyingImages {
 			System.out.println("PNG Image could not be opened: " + e.getMessage());
 		}
 		
-		//GIF Image Format
+		//BMP Image Format
 		try {
 			
 			BufferedImage bmp = ImageIO.read(new File("Landscape.bmp"));
