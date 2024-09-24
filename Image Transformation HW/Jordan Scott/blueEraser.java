@@ -11,26 +11,29 @@ public class blueEraser
         try 
         {
 
-            File png_image = new File("baseball.png");
-			BufferedImage png_buffered = ImageIO.read(png_image);
-			ImageIO.write(eraseBlue(png_buffered), "png", new File("baseballNoBlue.png"));
-            System.out.println("Png Created");
+        	File pngFile = new File("baseball.png");
+		BufferedImage pngImage = ImageIO.read(pngFile);
+            
+		ImageIO.write(eraseBlue(pngImage), "png", new File("baseballNoBlue.png"));
+            	System.out.println("Png Created");
 
-			File tiff_image = new File("nature.tiff");
-			BufferedImage tiff_buffered = ImageIO.read(tiff_image);
-			ImageIO.write(eraseBlue(tiff_buffered), "tiff", new File("natureNoBlue.tiff"));
-            System.out.println("Tiff Created");
+		File tiffFile = new File("nature.tiff");
+		BufferedImage tiffImage = ImageIO.read(tiffFile);
 
-			File bmp_image = new File("NY.bmp");
-			BufferedImage bmp_buffered = ImageIO.read(bmp_image);
-			ImageIO.write(eraseBlue(bmp_buffered), "bmp", new File("NYNoBlue.bmp"));
-            System.out.println("BMP Created");
-		}
+		ImageIO.write(eraseBlue(tiffImage), "tiff", new File("natureNoBlue.tiff"));
+            	System.out.println("Tiff Created");
 
-		catch(IOException e) 
+		File bmpFile = new File("NY.bmp");
+		BufferedImage bmpBuffered = ImageIO.read(bmpFile);
+
+		ImageIO.write(eraseBlue(bmpBuffered), "bmp", new File("NYNoBlue.bmp"));
+            	System.out.println("BMP Created");
+	}
+
+	catch(IOException e) 
         {
-			System.out.println("Image not found");
-		}
+		System.out.println("Image not found");
+	}
     }
 
     public static BufferedImage eraseBlue(BufferedImage image) 
@@ -46,7 +49,7 @@ public class blueEraser
         {
             for (int x = 0; x < width; x++)
             {
-                 pixelValue = image.getRGB(x, y);
+                pixelValue = image.getRGB(x, y);
                 alpha = (pixelValue >> 24) & 0xFF;  //bitwise operation moves necessary value down to 
                 red = (pixelValue >> 16) & 0xFF;    //last 8 bits, then ANDS it with 0xFF (11111111)
                 green = (pixelValue >> 8) & 0xFF;   //to only select the last 8 bits
