@@ -10,22 +10,21 @@ public class blueEraser
     {
         try 
         {
-
+		//png section
         	File pngFile = new File("baseball.png");
 		BufferedImage pngImage = ImageIO.read(pngFile);
-            
 		ImageIO.write(eraseBlue(pngImage), "png", new File("baseballNoBlue.png"));
             	System.out.println("Png Created");
 
+		//tiff section
 		File tiffFile = new File("nature.tiff");
 		BufferedImage tiffImage = ImageIO.read(tiffFile);
-
 		ImageIO.write(eraseBlue(tiffImage), "tiff", new File("natureNoBlue.tiff"));
             	System.out.println("Tiff Created");
 
+		//BMP section
 		File bmpFile = new File("NY.bmp");
 		BufferedImage bmpBuffered = ImageIO.read(bmpFile);
-
 		ImageIO.write(eraseBlue(bmpBuffered), "bmp", new File("NYNoBlue.bmp"));
             	System.out.println("BMP Created");
 	}
@@ -60,10 +59,8 @@ public class blueEraser
                 pixelValue = (alpha << 24) | (red << 16) | (green << 8) | blue;
 
                 image.setRGB(x, y, pixelValue); 
-
             }
         }
-
         return image;
     }
 }
