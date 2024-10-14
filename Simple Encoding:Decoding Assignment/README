@@ -1,0 +1,13 @@
+encodeST.java encodes a png image file with a message entered by the user
+Running encodeST.java:
+1. Prompts user to enter the name of the png image file
+2. Prompts the user for a message to encode
+3. Writes the encoded image to a new file titled: original file name + ENCODED.png
+
+decodeST.java decodes a png image file to ouput the message encoded
+Running decodeST.java:
+1. Prompts the user to enter the name of the png image file to deocode
+   a. Enter the name of the encoded image file that was produced from encodeST.java (fileName + ENCODED.png)
+2. Ouputs the message that is encoded in the image
+
+Three sample image files (Image1.png, Image2.png, Image3.png) have been provided in the folder as file options to encode
