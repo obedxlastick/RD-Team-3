@@ -17,8 +17,8 @@ public class encodeST
             String fileName = userInput.nextLine();
             
             //use image path as FileInputStream argument
-        	InputStream pngFile = new FileInputStream(fileName);
-        	BufferedImage pngImage = ImageIO.read(pngFile);
+            InputStream pngFile = new FileInputStream(fileName);
+            BufferedImage pngImage = ImageIO.read(pngFile);
         	
             System.out.println("Maximum message length = " + ((pngImage.getHeight() * pngImage.getWidth() / 8 ) - ENDING_MESSAGE.length()) + " characters.");
             System.out.println("Enter a message to encode: ");
