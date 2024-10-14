@@ -13,17 +13,17 @@ public class decodeST
         //attempt to get image to decode
     	try 
         {
-    		//gets the name of the image file to decode
+    	    //gets the name of the image file to decode
             System.out.println("Enter the name of the image you want to decode: ");
             Scanner userInput = new Scanner(System.in);
             String fileName = userInput.nextLine();
             userInput.close();
             
             //uses image path as FileInputStream argument
-    		InputStream pngFile = new FileInputStream(fileName);
-			BufferedImage pngImage = ImageIO.read(pngFile);
+    	    InputStream pngFile = new FileInputStream(fileName);
+	    BufferedImage pngImage = ImageIO.read(pngFile);
 			
-			//decode message
+	    //decode message
             System.out.println("Now trying to decode...");
 
             //gets the contents of the message from beginning at the start of the file until the ENDING_MESSAGE delimiter
@@ -31,10 +31,10 @@ public class decodeST
 		}
     	
         //image not found, inform user
-		catch(IOException e) 
+	catch(IOException e) 
         {
-			System.out.println("Image not found");
-		}
+		System.out.println("Image not found");
+	}
     }
 
     //Use masking to get final bit of argument integer
