@@ -11,7 +11,7 @@ public class encodeST
     {
         try 
         {
-			//get the file name from the user
+	    //get the file name from the user
             System.out.println("Enter the name of the png image file you want to encode: ");
             Scanner userInput = new Scanner(System.in);
             String fileName = userInput.nextLine();
@@ -39,14 +39,14 @@ public class encodeST
             fileName = fileName.substring(0, fileName.indexOf("."));
 
             //encode the message into new file with ending, then writes it to new file
-		    ImageIO.write(encodeMessage(pngImage, message + ENDING_MESSAGE), "png", new File(fileName + "ENCODED.png"));
+	    ImageIO.write(encodeMessage(pngImage, message + ENDING_MESSAGE), "png", new File(fileName + "ENCODED.png"));
             System.out.println("Message encoded into image file: " + fileName + "ENCODED.png");
-		}
+	}
 
-		catch(IOException e) 
+	catch(IOException e) 
         {
-			System.out.println("Image not found");
-		}
+	    System.out.println("Image not found");
+	}
     }
 
     //given a byte and the number we want the LSB to become, we encode a 0 or 1 based on newValue
@@ -96,15 +96,15 @@ public class encodeST
                 //if the pixel is within the message length to be encoded
                 if (count < messageBits.length)
                 {
-                	//change the LSB of the blue value of the pixel to message bit 
+                    //change the LSB of the blue value of the pixel to message bit 
                     int newBlue = encodeBit(blue, messageBits[count++]);
-                	int newPixelValue = ((alpha & 0xFF) << 24) | ((red & 0xFF) << 16) | ((green & 0xFF) << 8) | ((newBlue & 0xFF) << 0);
-                	output.setRGB(x, y, newPixelValue);
+                    int newPixelValue = ((alpha & 0xFF) << 24) | ((red & 0xFF) << 16) | ((green & 0xFF) << 8) | ((newBlue & 0xFF) << 0);
+                    output.setRGB(x, y, newPixelValue);
                 }
                 
                 //if the pixel is beyond the length of the message needing to be encoded, keep the original values of the pixel
                 else {
-                	output.setRGB(x, y, pixelValue);
+                    output.setRGB(x, y, pixelValue);
                 }
             }
         }
