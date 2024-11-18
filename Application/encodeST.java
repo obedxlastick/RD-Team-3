@@ -1,7 +1,5 @@
 import java.io.*;
 import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
-import java.util.Scanner;
 
 public class encodeST {
 
@@ -10,54 +8,6 @@ public class encodeST {
                                                        // could and should probably also use a header at the beginning
                                                        // of the message to indicate size, but this is good enough for
                                                        // now
-
-   /*  public static void main(String[] args) {
-        try {
-            // get the file name from the user
-            System.out.println("Enter the name of the image file you want to encode: ");
-            Scanner userInput = new Scanner(System.in);
-            String fileName = userInput.nextLine();
-
-            // use image path as FileInputStream argument
-            InputStream inputFile = new FileInputStream(fileName);
-            BufferedImage imageFile = ImageIO.read(inputFile);
-            
-            //each pixel can hold up to 24 bits divided by 8 to return the number of bytes equivalent to the characters
-            int maxLength = ((24 * imageFile.getHeight() * imageFile.getWidth()) / 8) - ENDING_MESSAGE.length();
-            
-            System.out.println("Maximum message length = " + (maxLength) + " characters.");
-
-            // Get the text file name from the user ****
-            System.out.println("Enter the name of the text file containing the message: ");
-            String textFileName = userInput.nextLine();
-            userInput.close();
-
-            // Read the message from the text file
-            String message = readMessageFromFile(textFileName);
-
-            // checks if message is too long for image
-            if (message.length() + ENDING_MESSAGE.length() > maxLength) {
-                System.out.println("Message too long!");
-                System.exit(1);
-            }
-
-            System.out.println("Message being encoded = " + message);
-
-            // extracts the file name excluding the extension while fileType stores the extension
-            String fileType = fileName.substring(fileName.lastIndexOf('.') + 1);
-            fileName = fileName.substring(0, fileName.indexOf("."));
-            
-
-            // encode the message into new file with ending, then writes it to new file
-            ImageIO.write(encodeMessage(imageFile, message + ENDING_MESSAGE), fileType, new File(fileName + "ENCODED." + fileType));
-            System.out.println("Message encoded into image file: " + fileName + "ENCODED." + fileType);
-        }
-
-        catch (IOException e) {
-            System.out.println("Image not found");
-        }
-    }
-        */
 
     // Read the message from a text file
     private static String readMessageFromFile(String fileName) throws IOException {
