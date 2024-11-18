@@ -1,60 +1,11 @@
-import java.io.*;
-import java.util.Scanner;
 import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 import java.lang.Math;
-import java.io.FileWriter;
 
 public class decodeST {
     public static String ENDING_MESSAGE = "&*09^%$__"; // super arbitrary. Just marks the end of the message
                                                        // could and should probably also use a header at the beginnign
                                                        // of the message to indicate size, but this is good enough for
                                                        // now
-
-   /*  public static void main(String[] args) {
-    	try {
-        	File output = new File("outputMessage.txt");
-        	if(output.createNewFile()) {
-        		System.out.println("File created");
-        	}
-        	else {
-        		System.out.println("File already exists");
-        	}
-        }
-        catch(IOException e){
-        	System.out.println("File error");
-        }
-    	
-    	// attempt to get image to decode
-        try {
-            // gets the name of the image file to decode
-            System.out.println("Enter the name of the image you want to decode: ");
-            Scanner userInput = new Scanner(System.in);
-            String fileName = userInput.nextLine();
-            userInput.close();
-
-            // uses image path as FileInputStream argument
-            InputStream inputFile = new FileInputStream(fileName);
-            BufferedImage imageFile = ImageIO.read(inputFile);
-
-            // decode message
-            System.out.println("Now trying to decode...");
-
-            // gets the contents of the message from beginning at the start of the file
-            // until the ENDING_MESSAGE delimiter
-            
-            FileWriter writer = new FileWriter("outputMessage.txt");
-            String message = decodeMessage(imageFile);
-            message = message.substring(0, message.indexOf(ENDING_MESSAGE));
-        	writer.write(message);
-            writer.close();
-            System.out.println("Decoding completed, check outputMessage.txt");
-        }
-        // image not found, inform user
-        catch (IOException e) {
-            System.out.println("Image not found");
-        }
-    } */
     
     // Use masking to get final bit of argument integer
     public static int decodeBit(int number, int lsbIndex) {
