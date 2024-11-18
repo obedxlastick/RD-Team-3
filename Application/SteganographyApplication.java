@@ -1,13 +1,10 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -112,8 +109,7 @@ public class SteganographyApplication extends JFrame {
             String fileType = fileName.substring(fileName.lastIndexOf('.') + 1);
             fileName = fileName.substring(0, fileName.indexOf("."));
 
-            if (!checkFileType(fileType))
-            {
+            if (!checkFileType(fileType)){
                 outputArea.setText("File type not supported! Please select a valid filetype.");
                 return;
             }
@@ -145,8 +141,7 @@ public class SteganographyApplication extends JFrame {
             String fileName = imagePath.substring(imagePath.lastIndexOf('\\') + 1);
             String fileType = fileName.substring(fileName.lastIndexOf('.') + 1);
 
-            if (!checkFileType(fileType))
-            {
+            if (!checkFileType(fileType)){
                 outputArea.setText("File type not supported! Please select a valid filetype.");
                 return;
             }
@@ -177,11 +172,9 @@ public class SteganographyApplication extends JFrame {
         return messageBuilder.toString().trim(); // Trim to remove any trailing line breaks
     }
     
-    public static boolean checkFileType(String fileType) 
-    {
+    public static boolean checkFileType(String fileType) {
         fileType = fileType.toLowerCase();
-        if (!fileType.equals("png") && !fileType.equals("bmp") &&  !fileType.equals("tiff") && !fileType.equals("ppm"))
-        {
+        if (!fileType.equals("png") && !fileType.equals("bmp") &&  !fileType.equals("tiff") && !fileType.equals("ppm")){
     		return false;
         }
         else return true;
