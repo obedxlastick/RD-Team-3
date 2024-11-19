@@ -1,10 +1,13 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -52,7 +55,7 @@ public class SteganographyApplication extends JFrame {
         // Output area
         outputArea = new JTextArea(10, 40);
         outputArea.setEditable(false);
-        outputArea.setText("Select a file for encoding or decoding. \nSupported image filetypes are: png, bmp, ppm, tiff.");
+        outputArea.setText("Select a file for encoding or decoding. \nSupported image filetypes are: png, bmp, tiff.");
 
         // Add components to the frame
         add(filePanel, BorderLayout.NORTH);
@@ -174,7 +177,7 @@ public class SteganographyApplication extends JFrame {
     
     public static boolean checkFileType(String fileType) {
         fileType = fileType.toLowerCase();
-        if (!fileType.equals("png") && !fileType.equals("bmp") &&  !fileType.equals("tiff") && !fileType.equals("ppm")){
+        if (!fileType.equals("png") && !fileType.equals("bmp") &&  !fileType.equals("tiff")){
     		return false;
         }
         else return true;
